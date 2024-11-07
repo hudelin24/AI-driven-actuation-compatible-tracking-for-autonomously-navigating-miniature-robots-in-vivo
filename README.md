@@ -100,7 +100,7 @@ python MagTrackTransformer/tools/run_mtt.py \
   GPU_ENABLE True \
   DATA.PATH_TO_DATA_DIR Data/MTT/MWMR_S/ \
   OUTPUT_DIR MagTrackTransformer/results/MWMR_S/tracking_divide_128_10_4_0.1 \
-  TRAIN_ENABLE False \
+  TRAIN.ENABLE False \
   TEST.CHECKPOINT_FILE_PATH MagTrackTransformer/trained_NNs/trained_MTT/MWMR_S/tracking_divide_128_10_4_0.1/checkpoint_epoch_00040.pyth \
 ```
 Train the MTT for MWMR_L (depth=8 and drop_path_rate=0.2):
@@ -120,7 +120,7 @@ python MagTrackTransformer/tools/run_mtt.py \
   GPU_ENABLE True \
   DATA.PATH_TO_DATA_DIR Data/MTT/MWMR_L/ \
   OUTPUT_DIR MagTrackTransformer/results/MWMR_L/tracking_divide_128_8_4_0.2 \
-  TRAIN_ENABLE False \
+  TRAIN.ENABLE False \
   TEST.CHECKPOINT_FILE_PATH MagTrackTransformer/trained_NNs/trained_MTT/MWMR_L/tracking_divide_128_8_4_0.2/checkpoint_epoch_00020.pyth \
   MODEL_MTT.DEPTH 8 \
   MODEL_MTT.DROP_PATH_RATE 0.2 \

@@ -18,7 +18,7 @@ Then, install the following packages:
 - numpy: ```pip install numpy```
 - tensorboard: ```pip install tensorboard```
 
-Then, build the MagTrackTransformer codebase by running:
+Finally, build the MagTrackTransformer codebase by running:
 
 ```
 git clone https://github.com/hudelin24/AI-driven-actuation-compatible-tracking-for-autonomously-navigating-miniature-robots-in-vivo
@@ -29,8 +29,8 @@ cd AI-driven-actuation-compatible-tracking-for-autonomously-navigating-miniature
 Download our data from Zenodo (release soon) to Data folder and uncompress. A desrpcetion about our data is provided in Data.md.
 
 
-## MCT pretraining
-Pretrain the default MCT
+## MCT pre-training
+Pre-train the MCT with default settings.
 ```
 python MagTrackTransformer/tools/run_mct.py \
   --cfg MagTrackTransformer/configs/calib/MCT_pretrain.yaml \
@@ -38,10 +38,25 @@ python MagTrackTransformer/tools/run_mct.py \
   DATA.PATH_TO_DATA_DIR Data/MCT_pretrain \
   OUTPUT_DIR MagTrackTransformer/results/calib_p \
 ```
-The results will be saved at MagTrackTransformer/results/calib_p.
+The results will be saved at OUTPUT_DIR, i.e., MagTrackTransformer/results/calib_p.
 
-
-
+## MCT fine-tuning
+Fine-tune the pretrained MCT.
+```
+python MagTrackTransformer/tools/run_mct.py \
+  --cfg MagTrackTransformer/configs/calib/MCT_finetune.yaml \
+  GPU_ENABLE True \
+  DATA.PATH_TO_DATA_DIR Data/MCT_finetune/MWMR_S/calib_mtt_train_1 \
+  OUTPUT_DIR MagTrackTransformer/results/MWMR_S/calib_mtt_train_1 \
+```
+We can use different datasets to finetune the MCT (by changing DATA.PATH_TO_DATA_DIR), and save the results to corresponding folder (by changing OUTPUT_DIR). For example:
+```
+python MagTrackTransformer/tools/run_mct.py \
+  --cfg MagTrackTransformer/configs/calib/MCT_finetune.yaml \
+  GPU_ENABLE True \
+  DATA.PATH_TO_DATA_DIR Data/MCT_finetune/MWMR_L/calib_mtt_val_2 \
+  OUTPUT_DIR MagTrackTransformer/results/MWMR_L/calib_mtt_val_2 \
+```
 
 
 

@@ -62,12 +62,25 @@ python MagTrackTransformer/tools/run_mct.py \
 ```
 
 ## Data calibration (interference filtering) with fine-tuned MCTs
-Remove the interference in the magnetic readouts using fine-tuned MCTs
+Remove the interference in the magnetic readouts using the corresponding fine-tuned MCT. For example, if we want to calibrate the interference in the data saved in Data/MCT_finetune/MWMR_S/calib_mtt_train_1, we need to use the finetuned MCT saved at MagTrackTransformer/trained_NNs/finetuned_MCT/MWMR_S/calib_mtt_train_1/checkpoint_epoch_00066.pyth.
 
-
-
-
-
+```
+python MagTrackTransformer/tools/run_calib.py \
+  --cfg MagTrackTransformer/configs/calib/MCT_calib.yaml \
+  GPU_ENABLE True \
+  DATA.PATH_TO_DATA_DIR Data/MCT_finetune/MWMR_S/calib_mtt_train_1 \
+  OUTPUT_DIR MagTrackTransformer/results/MWMR_S/calib_mtt_train_1 \
+  TEST.CHECKPOINT_FILE_PATH MagTrackTransformer/trained_NNs/finetuned_MCT/MWMR_S/calib_mtt_train_1/checkpoint_epoch_00066.pyth \
+```
+If we want to calibrate the interference in the data saved in Data/MCT_finetune/MWMR_L/calib_mtt_test_2, we need to use the finetuned MCT saved at MagTrackTransformer/trained_NNs/finetuned_MCT/MWMR_L/calib_mtt_test_2/checkpoint_epoch_00024.pyth.
+```
+python MagTrackTransformer/tools/run_calib.py \
+  --cfg MagTrackTransformer/configs/calib/MCT_calib.yaml \
+  GPU_ENABLE True \
+  DATA.PATH_TO_DATA_DIR Data/MCT_finetune/MWMR_S/calib_mtt_train_1 \
+  OUTPUT_DIR MagTrackTransformer/results/MWMR_S/calib_mtt_train_1 \
+  TEST.CHECKPOINT_FILE_PATH MagTrackTransformer/trained_NNs/finetuned_MCT/MWMR_S/calib_mtt_train_1/checkpoint_epoch_00066.pyth \
+```
 
 
 

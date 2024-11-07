@@ -28,7 +28,7 @@ cd AI-driven-actuation-compatible-tracking-for-autonomously-navigating-miniature
 ```
 # Usage
 ## Data Preparation
-Download our data from Zenodo (release soon) to Data folder and uncompress. A desrpcetion about our data is provided in Data.md.
+Download our data from Zenodo (release soon) to `Data` folder and uncompress. A desrpcetion about our data is provided in Data.md.
 
 
 ## MCT pre-training
@@ -40,7 +40,7 @@ python MagTrackTransformer/tools/run_mct.py \
   DATA.PATH_TO_DATA_DIR Data/MCT_pretrain \
   OUTPUT_DIR MagTrackTransformer/results/calib_p \
 ```
-The results will be saved at OUTPUT_DIR, i.e., MagTrackTransformer/results/calib_p.
+The results will be saved at OUTPUT_DIR, i.e., `MagTrackTransformer/results/calib_p`.
 
 ## MCT fine-tuning
 Fine-tune the pretrained MCT.
@@ -64,7 +64,7 @@ python MagTrackTransformer/tools/run_mct.py \
 ```
 
 ## Data calibration (interference filtering) with fine-tuned MCTs
-Remove the interference in the magnetic readouts using the corresponding fine-tuned MCT. For example, if we want to calibrate the interference in the data saved in Data/MCT_calib/MWMR_S/calib_mtt_train_1, we need to use the finetuned MCT saved at MagTrackTransformer/trained_NNs/finetuned_MCT/MWMR_S/calib_mtt_train_1/checkpoint_epoch_00066.pyth.
+Remove the interference in the magnetic readouts using the corresponding fine-tuned MCT. For example, if we want to calibrate the interference in the data saved in `Data/MCT_calib/MWMR_S/calib_mtt_train_1`, we need to use the finetuned MCT saved at `MagTrackTransformer/trained_NNs/finetuned_MCT/MWMR_S/calib_mtt_train_1/checkpoint_epoch_00066.pyth`.
 
 ```
 python MagTrackTransformer/tools/run_calib.py \
@@ -74,7 +74,7 @@ python MagTrackTransformer/tools/run_calib.py \
   OUTPUT_DIR MagTrackTransformer/results/MWMR_S/calib_mtt_train_1 \
   TEST.CHECKPOINT_FILE_PATH MagTrackTransformer/trained_NNs/finetuned_MCT/MWMR_S/calib_mtt_train_1/checkpoint_epoch_00066.pyth \
 ```
-If we want to calibrate the interference in the data saved in Data/MCT_calib/MWMR_L/calib_mtt_test_2, we need to use the finetuned MCT saved at MagTrackTransformer/trained_NNs/finetuned_MCT/MWMR_L/calib_mtt_test_2/checkpoint_epoch_00024.pyth.
+If we want to calibrate the interference in the data saved in `Data/MCT_calib/MWMR_L/calib_mtt_test_2`, we need to use the finetuned MCT saved at `MagTrackTransformer/trained_NNs/finetuned_MCT/MWMR_L/calib_mtt_test_2/checkpoint_epoch_00024.pyth`.
 ```
 python MagTrackTransformer/tools/run_calib.py \
   --cfg MagTrackTransformer/configs/calib/MCT_calib.yaml \

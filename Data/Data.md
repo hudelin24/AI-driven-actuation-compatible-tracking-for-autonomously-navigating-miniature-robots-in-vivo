@@ -1,2 +1,2 @@
 # MCT_pretrain
-Each ref
+Each `ref` folder

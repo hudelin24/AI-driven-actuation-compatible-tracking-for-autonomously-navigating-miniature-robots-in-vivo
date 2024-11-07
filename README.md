@@ -61,5 +61,28 @@ python MagTrackTransformer/tools/run_mct.py \
   OUTPUT_DIR MagTrackTransformer/results/MWMR_L/calib_mtt_val_2 \
 ```
 
+## Data calibration (interference filtering) with fine-tuned MCTs
+Remove the interference in the magnetic readouts using fine-tuned MCTs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

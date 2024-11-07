@@ -28,7 +28,7 @@ cd AI-driven-actuation-compatible-tracking-for-autonomously-navigating-miniature
 ```
 # Usage
 ## Data Preparation
-Download our data from Zenodo (release soon) to `Data` folder and uncompress. A desrpcetion about our data is provided in Data.md.
+Download our data via [MCT_pretrain](https://mycuhk-my.sharepoint.com/:u:/g/personal/1155186674_link_cuhk_edu_hk/ETzXjOHRdRRHrmgr_CimL04BO60uYoOhaof6tffcEZvlbA?e=2K9tVg) [MCT_finetune](https://mycuhk-my.sharepoint.com/:u:/g/personal/1155186674_link_cuhk_edu_hk/EZdvWbMEFGZOjkqtx2yJxRIBt8v-2DGbTgDTK9BgPM9sZg?e=01XX0w) [MCT_calib](https://mycuhk-my.sharepoint.com/:u:/g/personal/1155186674_link_cuhk_edu_hk/EdvXqDIXvDZOh1vaX37hPV4BldFXVGJuC9vjeHWnts884g?e=dS5RVl) [MTT](https://mycuhk-my.sharepoint.com/:u:/g/personal/1155186674_link_cuhk_edu_hk/EdFl4iB_PRhDmjAx4fG0CW8BBp1ivkXJEucrjdyc7Do9Mw?e=uQcSkS), or from Zenodo (release soon) to `Data` folder and uncompress. A desrpcetion about our data is provided in Data.md.
 
 
 ## MCT pre-training

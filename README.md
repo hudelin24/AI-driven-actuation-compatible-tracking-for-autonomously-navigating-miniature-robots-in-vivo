@@ -46,14 +46,17 @@ Fine-tune the pretrained MCT.
 python MagTrackTransformer/tools/run_mct.py \
   --cfg MagTrackTransformer/configs/calib/MCT_finetune.yaml \
   GPU_ENABLE True \
+  TRAIN.CHECKPOINT_FILE_PATH MagTrackTransformer/trained_NNs/pretrained_MCT/checkpoint_epoch_00140.pyth \
   DATA.PATH_TO_DATA_DIR Data/MCT_finetune/MWMR_S/calib_mtt_train_1 \
   OUTPUT_DIR MagTrackTransformer/results/MWMR_S/calib_mtt_train_1 \
+  
 ```
-We can use different datasets to finetune the MCT (by changing DATA.PATH_TO_DATA_DIR), and save the results to corresponding folder (by changing OUTPUT_DIR). For example:
+We can use different datasets to finetune the pre-trained MCT (by changing DATA.PATH_TO_DATA_DIR), and save the results to corresponding folder (by changing OUTPUT_DIR). For example:
 ```
 python MagTrackTransformer/tools/run_mct.py \
   --cfg MagTrackTransformer/configs/calib/MCT_finetune.yaml \
   GPU_ENABLE True \
+  TRAIN.CHECKPOINT_FILE_PATH MagTrackTransformer/trained_NNs/pretrained_MCT/checkpoint_epoch_00140.pyth \
   DATA.PATH_TO_DATA_DIR Data/MCT_finetune/MWMR_L/calib_mtt_val_2 \
   OUTPUT_DIR MagTrackTransformer/results/MWMR_L/calib_mtt_val_2 \
 ```

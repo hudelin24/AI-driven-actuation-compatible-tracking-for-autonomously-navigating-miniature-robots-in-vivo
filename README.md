@@ -9,7 +9,7 @@ We recommend running the code on a single RTX 4090 GPU.
 First, create a conda virtual environment and activate it:
 ```
 conda create -n MagTrackTransformer python=3.9 -y
-conda activate timesformer
+conda activate MagTrackTransformer
 ```
 Then, install the following packages:
 

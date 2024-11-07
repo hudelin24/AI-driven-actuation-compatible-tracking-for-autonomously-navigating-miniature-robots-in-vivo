@@ -82,7 +82,7 @@ python MagTrackTransformer/tools/run_calib.py \
   TEST.CHECKPOINT_FILE_PATH MagTrackTransformer/trained_NNs/finetuned_MCT/MWMR_L/calib_mtt_test_2/checkpoint_epoch_00024.pyth \
 ```
 ## MTT training
-After data calibration (interference filtering), the estimated signals emitted by the miniature wireless magnetic robots can be obtained. The MTT is designed to implement spatiotemporal attention on these signals for localization. Train the MCT for MWMR_S with default settings by  
+After data calibration (interference filtering), the estimated signals emitted by the miniature wireless magnetic robots can be obtained. The MTT is designed to implement spatiotemporal attention on these signals for localization. Train the MTT for MWMR_S with default settings by  
  
 ```
 python MagTrackTransformer/tools/run_mtt.py \
@@ -101,8 +101,26 @@ python MagTrackTransformer/tools/run_mtt.py \
   TRAIN_ENABLE False \
   TEST.CHECKPOINT_FILE_PATH MagTrackTransformer/trained_NNs/trained_MTT/MWMR_S/tracking_divide_128_10_4_0.1/checkpoint_epoch_00040.pyth \
 ```
-
-
+Train the MTT for MWMR_L (depth=8 and drop_path_rate=0.2):
+```
+python MagTrackTransformer/tools/run_mtt.py \
+  --cfg MagTrackTransformer/configs/track/MTT_train.yaml \
+  GPU_ENABLE True \
+  DATA.PATH_TO_DATA_DIR Data/MTT/MWMR_L/ \
+  OUTPUT_DIR MagTrackTransformer/results/MWMR_L/tracking_divide_128_8_4_0.2 \
+  MODEL_MTT.DEPTH 8 \
+  MODEL_MTT.DROP_PATH_RATE 0.2 \
+```
+Test the trained MTT on the testing set
+```
+python MagTrackTransformer/tools/run_mtt.py \
+  --cfg MagTrackTransformer/configs/track/MTT_train.yaml \
+  GPU_ENABLE True \
+  DATA.PATH_TO_DATA_DIR Data/MTT/MWMR_L/ \
+  OUTPUT_DIR MagTrackTransformer/results/MWMR_L/tracking_divide_128_8_4_0.2 \
+  TRAIN_ENABLE False \
+  TEST.CHECKPOINT_FILE_PATH MagTrackTransformer/trained_NNs/trained_MTT/MWMR_L/tracking_divide_128_8_4_0.2/checkpoint_epoch_00020.pyth \
+```
 
 
 

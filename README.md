@@ -26,9 +26,19 @@ cd AI-driven-actuation-compatible-tracking-for-autonomously-navigating-miniature
 ```
 # Usage
 ## Data Preparation
-Download our data from Zenodo (release soon) and 
+Download our data from Zenodo (release soon) to Data folder and uncompress. A desrpcetion about our data is provided in Data.md.
 
 
+## MCT pretraining
+Pretrain the default MCT
+```
+python MagTrackTransformer/tools/run_mct.py \
+  --cfg MagTrackTransformer/configs/calib/MCT_pretrain.yaml \
+  GPU_ENABLE True \
+  PATH_TO_DATA_DIR Data/MCT_pretrain \
+  OUTPUT_DIR MagTrackTransformer/results/calib_p \
+```
+The results will be saved at MagTrackTransformer/results/calib_p.
 
 
 

@@ -122,6 +122,8 @@ python MagTrackTransformer/tools/run_mtt.py \
   OUTPUT_DIR MagTrackTransformer/results/MWMR_L/tracking_divide_128_8_4_0.2 \
   TRAIN_ENABLE False \
   TEST.CHECKPOINT_FILE_PATH MagTrackTransformer/trained_NNs/trained_MTT/MWMR_L/tracking_divide_128_8_4_0.2/checkpoint_epoch_00020.pyth \
+  MODEL_MTT.DEPTH 8 \
+  MODEL_MTT.DROP_PATH_RATE 0.2 \
 ```
 
 

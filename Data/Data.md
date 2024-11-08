@@ -16,7 +16,7 @@ Each `calib_mtt_xxx` folder contains a tracking dataset which  shares the same e
 ## cam_data\cam.pyth
 `cam_data\cam.pyth` is a dictionary file which stores one frame of 3D camera data. It includes three keys:
 ### 'camera index'
-An `int` number indicates the fame index in camera data.
+An `int` number indicates the frame index in camera data.
 ### 'camera time'
 A `float` number indicates the camera timestamp.
 ### 'camera data'
@@ -38,9 +38,9 @@ A `[1,6,1,4,7]` float tensor records the readouts from the tracking sensing unit
 ## time_synchronization\time_synchronization.pyth
 `mag_data\mag.pyth` is a dictionary file which stores time synchronization information. It includes four keys:
 ### 'camera index'
-An `int` number indicates the fame index in camera data.
+An `int` number indicates the frame index in camera data.
 ### 'magnetic index'
-An `int` number indicates the fame index in magnetic data which is the nearest in time with the camera frame.
+An `int` number indicates the frame index in magnetic data which is the nearest in time with the camera frame.
 ### 'camera time'
 A `float` number indicates the camera timestamp.
 ### 'magnetic time'

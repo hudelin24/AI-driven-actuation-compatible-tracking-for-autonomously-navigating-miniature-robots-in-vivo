@@ -13,7 +13,7 @@ conda activate MagTrackTransformer
 ```
 Then, install the following packages:
 
-- [Pytorch with cuda](https://pytorch.org): `conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia`
+- [Pytorch with cuda](https://pytorch.org): `conda install pytorch==2.2.1 torchvision==0.17.1 torchaudio==2.2.1 pytorch-cuda=12.1 -c pytorch -c nvidia`
 - [fvcore](https://github.com/facebookresearch/fvcore/): `pip install 'git+https://github.com/facebookresearch/fvcore'`
 - simplejson: ```pip install simplejson```
 - einops: ```pip install einops```

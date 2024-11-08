@@ -25,7 +25,7 @@ A `[3]` float tensor records the coordinates of the robot recorded by the 3D cam
 ## mag_data\mag.pyth
 `mag_data\mag.pyth` is a dictionary file which stores one frame of sensor array data. It includes four keys before calibration and five keys after calibration:
 ### 'magnetic index'
-An `int` number indicates the fame index in magnetic data.
+An `int` number indicates the frame index in magnetic data.
 ### 'magnetic time'
 A `float` number indicates the sensor array timestamp.
 ### 'magnetic map sensing'

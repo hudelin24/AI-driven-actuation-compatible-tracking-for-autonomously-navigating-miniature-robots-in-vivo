@@ -43,7 +43,7 @@ python MagTrackTransformer/tools/run_mct.py \
 The results will be saved at OUTPUT_DIR, i.e., `MagTrackTransformer/results/calib_p`.
 
 ## MCT fine-tuning
-Fine-tune the pretrained MCT:
+Fine-tune the pre-trained MCT:
 ```
 python MagTrackTransformer/tools/run_mct.py \
   --cfg MagTrackTransformer/configs/calib/MCT_finetune.yaml \

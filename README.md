@@ -153,6 +153,18 @@ python MagTrackTransformer/tools/run_mdt.py \
   TEST.CHECKPOINT_FILE_PATH MagTrackTransformer/trained_NNs/trained_MDT/MWMR_S/checkpoint_epoch_00050.pyth
 ```
 
+## Noisy data denoising and calibration (interference filtering) with trained MDT and fine-tuned MCTs
+Remove post-calibration noise in sensors' readouts using the trained MDT, and then eliminate the interference in the TSUs' readouts using the corresponding fine-tuned MCT. For example, if we want to denoise and calibrate the data saved in `Data/MCT_calib/MWMR_S/calib_mtt_train_1`, we need to use the finetuned MCT saved at `MagTrackTransformer/trained_NNs/finetuned_MCT/MWMR_S/calib_mtt_train_1/checkpoint_epoch_00066.pyth`:
+and the trained MDT saved at `MagTrackTransformer/trained_NNs/trained_MDT/MWMR_S/checkpoint_epoch_00050.pyth`:
+```
+python MagTrackTransformer/tools/run_calib.py \
+  --cfg MagTrackTransformer/configs/calib/MCT_calib.yaml \
+  GPU_ENABLE True \
+  DATA.PATH_TO_DATA_DIR Data/MCT_calib/MWMR_S/calib_mtt_train_1 \
+  OUTPUT_DIR MagTrackTransformer/results/MWMR_S/calib_mtt_train_1 \
+  TEST.CHECKPOINT_FILE_PATH MagTrackTransformer/trained_NNs/finetuned_MCT/MWMR_S/calib_mtt_train_1/checkpoint_epoch_00066.pyth 
+```
+
 
 
 

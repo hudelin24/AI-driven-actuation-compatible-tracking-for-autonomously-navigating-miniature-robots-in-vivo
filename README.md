@@ -132,7 +132,15 @@ python MagTrackTransformer/tools/run_mtt.py \
 ## MDT for post-calibration noise elimination
 MDT is designed to predict post-calibration noise embeded in sensors' readouts.
 ### MDT training
-
+Train the MDT using MWMR_S tracking data with default settings by:
+```
+python MagTrackTransformer/tools/run_mdt.py \
+  --cfg MagTrackTransformer/configs/noise/MDT_train.yaml \
+  GPU_ENABLE True \
+  DATA.PATH_TO_DATA_DIR Data/MTT/MWMR_S/ \
+  OUTPUT_DIR MagTrackTransformer/results/MWMR_S/MDT \
+  MODEL_MDT.POST_CALIB_NOISE_DIR Data/magnetic_noise.pyth 
+```
 
 
 

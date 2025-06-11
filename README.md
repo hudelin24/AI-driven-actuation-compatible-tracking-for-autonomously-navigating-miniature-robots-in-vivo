@@ -150,7 +150,7 @@ python MagTrackTransformer/tools/run_mdt.py \
   OUTPUT_DIR MagTrackTransformer/results/MWMR_S/MDT \
   MODEL_MDT.POST_CALIB_NOISE_DIR Data/magnetic_noise.pyth \
   TRAIN.ENABLE False \
-  TEST.CHECKPOINT_FILE_PATH MagTrackTransformer/trained_NNs/MDT/MWMR_S/checkpoint_epoch_00050.pyth
+  TEST.CHECKPOINT_FILE_PATH MagTrackTransformer/trained_NNs/trained_MDT/MWMR_S/checkpoint_epoch_00050.pyth
 ```
 
 

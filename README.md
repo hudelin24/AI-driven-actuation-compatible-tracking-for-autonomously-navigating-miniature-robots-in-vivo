@@ -141,6 +141,18 @@ python MagTrackTransformer/tools/run_mdt.py \
   OUTPUT_DIR MagTrackTransformer/results/MWMR_S/MDT \
   MODEL_MDT.POST_CALIB_NOISE_DIR Data/magnetic_noise.pyth 
 ```
+Test the trained MDT on the testing set:
+```
+python MagTrackTransformer/tools/run_mdt.py \
+  --cfg MagTrackTransformer/configs/noise/MDT_train.yaml \
+  GPU_ENABLE True \
+  DATA.PATH_TO_DATA_DIR Data/MTT/MWMR_S/ \
+  OUTPUT_DIR MagTrackTransformer/results/MWMR_S/MDT \
+  MODEL_MDT.POST_CALIB_NOISE_DIR Data/magnetic_noise.pyth \
+  TRAIN.ENABLE False \
+  TEST.CHECKPOINT_FILE_PATH MagTrackTransformer/trained_NNs/MDT/MWMR_S/checkpoint_epoch_00050.pyth
+```
+
 
 
 

@@ -129,6 +129,10 @@ python MagTrackTransformer/tools/run_mtt.py \
   MODEL_MTT.DEPTH 8 \
   MODEL_MTT.DROP_PATH_RATE 0.2 
 ```
+## MDT for post-calibration noise elimination
+MDT is designed to predict post-calibration noise embeded in sensors' readouts.
+### MDT training
+
 
 
 

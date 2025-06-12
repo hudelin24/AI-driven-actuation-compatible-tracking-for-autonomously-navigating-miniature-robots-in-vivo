@@ -46,7 +46,7 @@ A `[1,3,1,12]` float tensor records the readouts from the calibration sensing un
 A `[1,6,1,4,7]` float tensor records the readouts from the tracking sensing units (TSUs) and the output of the corresponding fine-tuned MCT, where `6` is the number of measurement channels `* 2`, and `4` and `7` represent the shape of the TSU array. 
 
 ### 'calibrated denoised magnetic map' (only available after MDT-based denoising and MCT-based calibration)
-A `[1,18,1,4,7]` float tensor records noise-free TSUs' readouts (i.e., `[:,0:3,:,:,:]`), noisy TSUs' readouts (i.e., `[:,3:6,:,:,:]`), denoised TSUs' readouts (i.e., `[:,6:9,:,:,:]`) and the outputs (i.e., `[:,9:12,:,:,:]`, `[:,12:15,:,:,:]` and `[:,15:18,:,:,:]`) of the corresponding fine-tuned MCT using noise-free, noisy and denoised CSUs' readouts as input, respectively. Here, `18` is the number of measurement channels `* 6`, and `4` and `7` represent the shape of the TSU array. 
+A `[1,18,1,4,7]` float tensor records noise-free, noisy and denoised TSUs' readouts (i.e., `[:,0:3,:,:,:]`, `[:,3:6,:,:,:]` and `[:,6:9,:,:,:]`) and the outputs of the corresponding fine-tuned MCT using noise-free, noisy and denoised CSUs' readouts as inputs (i.e., `[:,9:12,:,:,:]`, `[:,12:15,:,:,:]` and `[:,15:18,:,:,:]`). Here, `18` is the number of measurement channels `* 6`, and `4` and `7` represent the shape of the TSU array. 
 
 ## time_synchronization/time_synchronization.pyth
 `mag_data/mag.pyth` is a dictionary file which stores time synchronization information. It includes four keys:

@@ -49,13 +49,17 @@ A `[1,6,1,4,7]` float tensor records the readouts from the tracking sensing unit
 A `[1,18,1,4,7]` float tensor records noise-free, noisy and denoised TSUs' readouts (i.e., `[:,0:3,:,:,:]`, `[:,3:6,:,:,:]` and `[:,6:9,:,:,:]`) and the outputs of the corresponding fine-tuned MCT using noise-free, noisy and denoised CSUs' readouts as inputs (i.e., `[:,9:12,:,:,:]`, `[:,12:15,:,:,:]` and `[:,15:18,:,:,:]`). Here, `18` is the number of measurement channels `* 6`, and `4` and `7` represent the shape of the TSU array. 
 
 ## time_synchronization/time_synchronization.pyth
-`mag_data/mag.pyth` is a dictionary file which stores time synchronization information. It includes four keys:
+`time_synchronization/time_synchronization.pyth` is a dictionary file which stores time synchronization information. It includes four keys:
+
 ### 'camera index'
 An `int` number indicates the frame index in camera data.
+
 ### 'magnetic index'
 An `int` number indicates the frame index in magnetic data which is the nearest in time with the camera frame.
+
 ### 'camera time'
 A `float` number indicates the camera timestamp.
+
 ### 'magnetic time'
 A `float` number indicates the sensor array timestamp.
 

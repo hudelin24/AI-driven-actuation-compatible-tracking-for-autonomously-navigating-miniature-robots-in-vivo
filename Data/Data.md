@@ -25,7 +25,7 @@ An `int` number indicates the frame index in camera data.
 A `float` number indicates the camera timestamp.
 
 ### 'camera data'
-A `[3]` float tensor records the coordinates of the robot recorded by the 3D camera.
+A `[3]` float tensor records the coordinates of the robot captured by the 3D camera.
 
 ## mag_data/mag.pyth
 `mag_data/mag.pyth` is a dictionary file which stores one frame of sensor array data. It includes four keys before calibration and five keys after calibration:
@@ -72,9 +72,19 @@ It is actually the re-organized MCT_calib after MDT-based denoising and MCT-base
 Each `ref` folder contains a segment of continuously collected data. 
 
 ## cam_data/cam.pyth
-`cam_data/cam.pyth` is a dictionary file which stores one frame of 3D camera data. It includes three keys:
+`cam_data/cam.pyth` is a dictionary file which stores one frame of 3D camera data. It includes four keys:
 
+### 'camera index'
+An `int` number indicates the frame index in camera data.
 
+### 'camera time'
+A `float` number indicates the camera timestamp.
+
+### 'camera pos'
+A `[3]` float tensor records the 3D coordinates of the robot captured by the 3D camera.
+
+### 'camera ori'
+A `[3]` float tensor records the unit orientation vector of the robot captured by the 3D camera.
 
 
 

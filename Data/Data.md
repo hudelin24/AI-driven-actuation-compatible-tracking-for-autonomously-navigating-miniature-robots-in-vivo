@@ -63,8 +63,12 @@ A `float` number indicates the sensor array timestamp.
 It is actually the re-organized MCT_calib after MCT-based calibration.
 
 # magnetic_noise.pyth
+A `[1453849,40,3]` float tensor records the post-calibration noise in readouts of all sensing units, where `3` is the number of measurement channels, and `40` is the number of sensing units. 
 
+# MTT_denoised
+It is actually the re-organized MCT_calib after MDT-based denoising and MCT-based calibration.
 
+# MOT
 
 
 

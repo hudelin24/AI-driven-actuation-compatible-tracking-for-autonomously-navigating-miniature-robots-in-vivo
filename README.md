@@ -217,7 +217,22 @@ python MagTrackTransformer/tools/run_mot.py \
   MODEL_MOT.AUXILIARY_NOISE_ENABLE True \
   MODEL_MOT.AUXILIARY_NOISE_DIR Data/MOT/MWMR_S/auxiliary_noise_distribution.pyth 
 ```
-
+### MOT testing
+Test the trained MOT (saved at `MagTrackTransformer/trained_NNs/trained_MOT/MWMR_S/checkpoint_epoch_00284.pyth`) on the testing samples:
+```
+python MagTrackTransformer/tools/run_mot.py \
+  --cfg MagTrackTransformer/configs/track/MOT_train.yaml \
+  GPU_ENABLE True \
+  DATA.PATH_TO_DATA_DIR Data/MOT/MWMR_S/ \
+  OUTPUT_DIR MagTrackTransformer/results/MWMR_S/MOT/ \
+  MODEL_MOT.AUXILIARY_ENABLE True \
+  MODEL_MOT.MAG_NOISE_ENABLE True \
+  MODEL_MOT.MAG_NOISE_DIR Data/MOT/MWMR_S/mag_noise_distribution.pyth \
+  MODEL_MOT.AUXILIARY_NOISE_ENABLE True \
+  MODEL_MOT.AUXILIARY_NOISE_DIR Data/MOT/MWMR_S/auxiliary_noise_distribution.pyth \
+  TRAIN.ENABLE False \
+  TEST.CHECKPOINT_FILE_PATH MagTrackTransformer/trained_NNs/trained_MOT/MWMR_S/checkpoint_epoch_00284.pyth
+```
 
 
 

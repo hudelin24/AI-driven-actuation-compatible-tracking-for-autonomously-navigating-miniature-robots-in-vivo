@@ -167,7 +167,7 @@ python MagTrackTransformer/tools/run_noise_calib.py \
   MODEL_MDT.CHECKPOINT_FILE_PATH MagTrackTransformer/trained_NNs/trained_MDT/MWMR_S/checkpoint_epoch_00050.pyth \
   MODEL_MDT.POST_CALIB_ENABLE True
 ```
-### MTT evluarion on denoised data
+### MTT evluation on denoised data
 Evaluate the MTT which was trained on noise-free data (data saved in `Data/MTT/MWMR_S/` and model saved at `MagTrackTransformer/trained_NNs/trained_MTT/MWMR_S/tracking_divide_128_10_4_0.1/checkpoint_epoch_00040.pyth`) using denoised data saved at `Data/MTT_denoised/MWMR_S/test/`:
 ```
 python MagTrackTransformer/tools/run_noise_MTT.py \

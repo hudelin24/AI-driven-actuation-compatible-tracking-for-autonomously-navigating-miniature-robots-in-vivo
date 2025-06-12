@@ -178,7 +178,19 @@ python MagTrackTransformer/tools/run_noise_MTT.py \
   TEST.CHECKPOINT_FILE_PATH MagTrackTransformer/trained_NNs/trained_MTT/MWMR_S/tracking_divide_128_10_4_0.1/checkpoint_epoch_00040.pyth \
   TRAIN.ENABLE False 
 ```
-### MTT finetuning using denoised data
+### MTT fine-tuning using denoised data
+Fine-tuning the MTT on denoised data saved in `Data/MTT/MWMR_S/train/` can improve its testing performance:
+```
+python MagTrackTransformer/tools/run_noise_MTT.py \
+  --cfg MagTrackTransformer/configs/noise/MTT_noise_train.yaml \
+  GPU_ENABLE True \
+  DATA.PATH_TO_DATA_DIR Data/MTT_denoise/MWMR_S/ \
+  OUTPUT_DIR MagTrackTransformer/results/MWMR_S/tracking_divide_128_10_4_0.1/ \
+  TRAIN.ENABLE True \
+  TRAIN.FINETUNE True \ 
+  TRAIN.CHECKPOINT_FILE_PATH MagTrackTransformer/trained_NNs/trained_MTT/MWMR_S/tracking_divide_128_10_4_0.1/checkpoint_epoch_00040.pyth \
+```
+
 ### Finetuned MTT evaluation on denoised data
 ## MOT for orientation estimation
 

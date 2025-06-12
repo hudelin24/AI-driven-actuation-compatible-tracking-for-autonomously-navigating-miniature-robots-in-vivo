@@ -69,7 +69,10 @@ A `[1453849,40,3]` float tensor records the post-calibration noise in readouts o
 It is actually the re-organized MCT_calib after MDT-based denoising and MCT-based calibration.
 
 # MOT
+Each `ref` folder contains a segment of continuously collected data. 
 
+## cam_data/cam.pyth
+`cam_data/cam.pyth` is a dictionary file which stores one frame of 3D camera data. It includes three keys:
 
 
 

@@ -33,9 +33,10 @@ TEST:
   DATASET: TrackingRawDataset
   BATCH_SIZE: 1024
   CHECKPOINT_FILE_PATH: MagTrackTransformer/trained_NNs/finetuned_MCT/MWMR_S/calib_mtt_train_1/checkpoint_epoch_00066.pyth
+
   
 DATA:
-  PATH_TO_DATA_DIR: Data/MCT_calib/MWMR_S/calib_mtt_train_1/
+  PATH_TO_DATA_DIR: Data/MCT_calib/MWMR_S/calib_mtt_train_1
 
 DATA_LOADER:
   NUM_WORKERS: 8

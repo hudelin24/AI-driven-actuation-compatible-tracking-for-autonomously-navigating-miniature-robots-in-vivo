@@ -15,9 +15,9 @@ def construct_loader(cfg, split):
     if split in ["train"]:
         dataset_name = cfg.TRAIN.DATASET
         batch_size = int(cfg.TRAIN.BATCH_SIZE)
-        shuffle = True if dataset_name != "TrackingRawDataset" else False
+        shuffle = True if dataset_name not in ["TrackingRawDataset", "TrackingNoiseRawDataset"] else False
         #print(shuffle)
-        drop_last = True if dataset_name != "TrackingRawDataset" else False
+        drop_last = True if dataset_name not in ["TrackingRawDataset", "TrackingNoiseRawDataset"] else False
         #print(drop_last)
 
     elif split in ["val"]:

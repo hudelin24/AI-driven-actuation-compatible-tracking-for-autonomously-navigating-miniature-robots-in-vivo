@@ -2,6 +2,7 @@ import torch.nn as nn
 
 _LOSSES = {
     "mse": nn.MSELoss,
+    "cel": nn.CosineEmbeddingLoss
 }
 
 

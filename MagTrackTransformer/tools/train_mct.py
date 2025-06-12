@@ -172,7 +172,7 @@ def eval_epoch(val_loader, model, val_meter, cur_epoch, cfg, writer=None):
 
 def train(cfg):
     """
-    Train a mct for many epochs on train set and evaluate it on val set.
+    Train an mct for many epochs on train set and evaluate it on val set.
     Args:
         cfg (CfgNode): configs. 
     """ 

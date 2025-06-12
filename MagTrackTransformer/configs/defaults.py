@@ -97,6 +97,255 @@ _C.MODEL_MTT.ATTN_TYPE = "joint_space_time"
 _C.MODEL_MTT.LOSS_FUNC = "mse"
 
 
+# -----------------------------------------------------------------------------
+# Model MOT options
+# -----------------------------------------------------------------------------
+_C.MODEL_MOT = CfgNode()
+
+# Magnetic map size [in_chans, H, W]
+_C.MODEL_MOT.MAG_SIZE = [3, 4, 7]
+
+#AUXILIARY dimension (estimated position)
+_C.MODEL_MOT.AUXILIARY_DIM = 3
+
+#Embedding dimension
+_C.MODEL_MOT.EMBED_DIM = 128
+
+#Orientation dimension
+_C.MODEL_MOT.ORIENT_DIM = 3
+
+#Number of transformer blocks
+_C.MODEL_MOT.DEPTH = 6
+
+#Number of heads
+_C.MODEL_MOT.NUM_HEADS = 8
+
+#Inflation ratio for mlp hiddern dimension
+_C.MODEL_MOT.MLP_RATIO = 2
+
+#Biase for linear qkv
+_C.MODEL_MOT.QKV_BIAS = True
+
+#Scale for qkv
+_C.MODEL_MOT.QKV_SCALE = None
+
+#Tranformer drop rate
+_C.MODEL_MOT.DROP_RATE = 0.0
+
+#Attention drop rate = 0
+_C.MODEL_MOT.ATTN_DROP_RATE = 0.0
+
+#Drop path rate 
+_C.MODEL_MOT.DROP_PATH_RATE = 0.1
+
+# Loss function
+_C.MODEL_MOT.LOSS_FUNC = "mse"
+
+# AUXILIARY_ENABLE
+_C.MODEL_MOT.AUXILIARY_ENABLE = True
+
+# MAG Noise ENABLE
+_C.MODEL_MOT.MAG_NOISE_ENABLE = True
+
+# MAG Noise DIR
+_C.MODEL_MOT.MAG_NOISE_DIR = "Data_final/MOT/MWMR_S/mag_noise_distribution.pyth"
+
+# AUXILIARY Noise ENABLE
+_C.MODEL_MOT.AUXILIARY_NOISE_ENABLE = True
+
+# AUXILIARY Noise DIR
+_C.MODEL_MOT.AUXILIARY_NOISE_DIR = "Data_final/MOT/MWMR_S/auxiliary_noise_distribution.pyth"
+
+
+# -----------------------------------------------------------------------------
+# Model MAT options
+# -----------------------------------------------------------------------------
+_C.MODEL_MAT = CfgNode()
+
+# Magnetic map size [in_chans, H, W]
+_C.MODEL_MAT.MAG_SIZE = [3, 4, 7]
+
+#Embedding dimension
+_C.MODEL_MAT.EMBED_DIM = 128
+
+#Orientation dimension
+_C.MODEL_MAT.ORIENT_DIM = 3
+
+#Position dimension
+_C.MODEL_MAT.POS_DIM = 3
+
+#Number of transformer blocks
+_C.MODEL_MAT.DEPTH = 6
+
+#Number of heads
+_C.MODEL_MAT.NUM_HEADS = 8
+
+#Inflation ratio for mlp hiddern dimension
+_C.MODEL_MAT.MLP_RATIO = 2
+
+#Biase for linear qkv
+_C.MODEL_MAT.QKV_BIAS = True
+
+#Scale for qkv
+_C.MODEL_MAT.QKV_SCALE = None
+
+#Tranformer drop rate
+_C.MODEL_MAT.DROP_RATE = 0.0
+
+#Attention drop rate = 0
+_C.MODEL_MAT.ATTN_DROP_RATE = 0.0
+
+#Drop path rate 
+_C.MODEL_MAT.DROP_PATH_RATE = 0.1
+
+# Loss function
+_C.MODEL_MAT.LOSS_FUNC_POS = "mse"
+_C.MODEL_MAT.LOSS_FUNC_ORI = "mse"
+_C.MODEL_MAT.LOSS_FUNC_WEIGHT = 1.0
+
+
+# -----------------------------------------------------------------------------
+# Model IMAT options
+# -----------------------------------------------------------------------------
+_C.MODEL_IMAT = CfgNode()
+
+# number of magnetic readouts
+_C.MODEL_IMAT.NUM_MAG = 40
+
+# #Embedding dimension
+_C.MODEL_IMAT.EMBED_DIM = 128
+
+#Orientation dimension
+_C.MODEL_IMAT.ORIENT_DIM = 3
+
+#Position dimension
+_C.MODEL_IMAT.POS_DIM = 3
+
+#Output dimension
+_C.MODEL_IMAT.OUT_DIM = 3
+
+#Number of transformer blocks
+_C.MODEL_IMAT.DEPTH = 6
+
+#Number of heads
+_C.MODEL_IMAT.NUM_HEADS = 8
+
+#Inflation ratio for mlp hiddern dimension
+_C.MODEL_IMAT.MLP_RATIO = 2
+
+#Biase for linear qkv
+_C.MODEL_IMAT.QKV_BIAS = True
+
+#Scale for qkv
+_C.MODEL_IMAT.QKV_SCALE = None
+
+#Tranformer drop rate
+_C.MODEL_IMAT.DROP_RATE = 0.0
+
+#Attention drop rate = 0
+_C.MODEL_IMAT.ATTN_DROP_RATE = 0.0
+
+#Drop path rate 
+_C.MODEL_IMAT.DROP_PATH_RATE = 0.1
+
+# Loss function
+_C.MODEL_IMAT.LOSS_FUNC = "mse"
+
+# -----------------------------------------------------------------------------
+# Model MDT options
+# -----------------------------------------------------------------------------
+_C.MODEL_MDT = CfgNode()
+
+# size of TUSs readouts
+_C.MODEL_MDT.TSUS_SIZE = (3,2,4,7)
+
+# size of CUSs readouts
+_C.MODEL_MDT.CSUS_SIZE = (3,2,12)
+
+#AUXILIARY dimension (estimated position)
+_C.MODEL_MDT.AUXILIARY_DIM = 3
+
+# #Embedding dimension
+_C.MODEL_MDT.EMBED_DIM = 128
+
+#Number of transformer blocks
+_C.MODEL_MDT.DEPTH = 6
+
+#Number of heads
+_C.MODEL_MDT.NUM_HEADS = 8
+
+#Inflation ratio for mlp hiddern dimension
+_C.MODEL_MDT.MLP_RATIO = 2
+
+#Biase for linear qkv
+_C.MODEL_MDT.QKV_BIAS = True
+
+#Scale for qkv
+_C.MODEL_MDT.QKV_SCALE = None
+
+#Tranformer drop rate
+_C.MODEL_MDT.DROP_RATE = 0.0
+
+#Attention drop rate = 0
+_C.MODEL_MDT.ATTN_DROP_RATE = 0.0
+
+#Drop path rate 
+_C.MODEL_MDT.DROP_PATH_RATE = 0.1
+
+# Loss function
+_C.MODEL_MDT.LOSS_FUNC = "mse"
+
+# Noise path
+_C.MODEL_MDT.POST_CALIB_NOISE_DIR = ""
+
+# Noise enable
+_C.MODEL_MDT.POST_CALIB_ENABLE = True
+
+# Noise free ratio
+_C.MODEL_MDT.NOISE_FREE_RATIO = 0.1
+
+# AUXILIARY_ENABLE
+_C.MODEL_MDT.AUXILIARY_ENABLE = False
+
+# Trained MDT PATH 
+_C.MODEL_MDT.CHECKPOINT_FILE_PATH = ""
+
+
+# -----------------------------------------------------------------------------
+# Model MLP options
+# -----------------------------------------------------------------------------
+_C.MODEL_MLP = CfgNode()
+
+#Input dimension
+_C.MODEL_MLP.IN_DIM = 84
+
+#Hidden layer dimension
+_C.MODEL_MLP.HIDDEN_DIM = 100
+
+#Output dimension
+_C.MODEL_MLP.OUT_DIM = 3
+
+#Number of hidden layers
+_C.MODEL_MLP.NUM_HIDDEN_LAYER = 3
+
+
+# -----------------------------------------------------------------------------
+# Model PoseNet options
+# -----------------------------------------------------------------------------
+_C.MODEL_PSN = CfgNode()
+
+#Output dimension
+_C.MODEL_PSN.OUT_DIM = 3
+
+# -----------------------------------------------------------------------------
+# Model PoseNet3D options
+# -----------------------------------------------------------------------------
+_C.MODEL_PSN3D = CfgNode()
+
+#Output dimension
+_C.MODEL_PSN3D.OUT_DIM = 3
+
+
 # ---------------------------------------------------------------------------- #
 # Optimizer options
 # ---------------------------------------------------------------------------- #

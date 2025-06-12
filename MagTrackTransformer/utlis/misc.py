@@ -139,9 +139,57 @@ def data_augument(mag_map_s, cam_data):
     return torch.cat([mag_map_s, mag_map_s_augument], 0), torch.cat([cam_data, cam_data], 0)
 
 
+def add_mag_noise(cfg, mag_map_s):
+    """
+    Args:
+        cfg (CfgNode): configs. 
+        mag_map_s:              [bsz, in_chans, T, H, W]    
+    """
+    bsz = mag_map_s.shape[0]
+    mag_noise_distribution = torch.load(cfg.MODEL_MOT.MAG_NOISE_DIR)
+    mag_noise = torch.randn(bsz, mag_map_s.shape[3], mag_map_s.shape[4], mag_map_s.shape[1])
+    mag_noise = mag_noise * mag_noise_distribution[:,:,3:6].unsqueeze(0).expand(bsz, -1, -1, -1) + mag_noise_distribution[:,:,0:3].unsqueeze(0).expand(bsz, -1, -1, -1)
+    mag_map_s = mag_map_s + mag_noise.permute(0,3,1,2).unsqueeze(2).to(mag_map_s.device, non_blocking=True)
+
+    return mag_map_s
 
 
+def add_auxiliary_noise(cfg, cam_pos):
+    """
+    Args:
+        cfg (CfgNode): configs. 
+        cam_pos:              [bsz, 3]    
+    """
+    bsz = cam_pos.shape[0]
+    auxiliary_noise_distribution = torch.load(cfg.MODEL_MOT.AUXILIARY_NOISE_DIR).to(cam_pos.device, non_blocking=True)
+    depth = torch.floor((0.182 - cam_pos[:,-1]) * 100).long() - 1
+    auxiliary_noise_params = auxiliary_noise_distribution[depth]
+    auxiliary_noise = torch.randn(bsz, cam_pos.shape[-1]).to(cam_pos.device, non_blocking=True)
+    auxiliary_noise = auxiliary_noise * auxiliary_noise_params[:,3:6] + auxiliary_noise_params[:,0:3]
+    cam_pos = cam_pos + auxiliary_noise
 
+    return cam_pos
+
+def add_post_calib_noise(cfg, mag_map, magnetic_noise):
+    """
+    Args:
+        cfg (CfgNode): configs. 
+        mag_map:              [bsz, in_chans, T, num_mag]
+        magnetic_noise:       [N, num_mag, in_chans]    
+    """
+    bsz, in_chans, T, num_mag = mag_map.shape
+    N = magnetic_noise.shape[0]
+    num_noise_free_sample = torch.round(torch.tensor(cfg.MODEL_MDT.NOISE_FREE_RATIO * bsz * T)).to(torch.long)
+    indices_noise_sample = torch.randperm(N)[:bsz*T]
+    indices_noise_free_sample = torch.randperm(bsz*T)[:num_noise_free_sample]
+    post_calib_noise = magnetic_noise[indices_noise_sample].to(mag_map.device, non_blocking=True)   
+    post_calib_noise[indices_noise_free_sample] = 0.0                                       #[bsz*T, num_mag, in_chans]
+    post_calib_noise = post_calib_noise.reshape(bsz,T,num_mag,in_chans).permute(0,3,1,2)    #[bsz, in_chans, T, num_mag]
+
+    mag_map = mag_map + post_calib_noise
+
+    
+    return mag_map, post_calib_noise[:,:,0,:].permute(0,2,1)
 
 
 

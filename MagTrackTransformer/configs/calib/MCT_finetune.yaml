@@ -37,17 +37,18 @@ TEST:
 
 DATA:
   PATH_TO_DATA_DIR: Data/MCT_finetune/MWMR_S/calib_mtt_train_1/
+
 DATA_LOADER:
   NUM_WORKERS: 8
   PIN_MEMORY: True
 
 TENSORBOARD:
-  ENABLE: True
+  ENABLE: False
 
 GPU_ENABLE: True
 RNG_SEED: 0
 LOG_PERIOD: 50
-OUTPUT_DIR: MagTrackTransformer/results/calib_mtt_train_1
+OUTPUT_DIR: MagTrackTransformer/results/MWMR_S/calib_mtt_train_1
 MODEL_NAME: mct_base
 
 

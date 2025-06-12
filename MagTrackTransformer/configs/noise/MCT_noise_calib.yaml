@@ -1,0 +1,74 @@
+MODEL_MCT:
+  MAG_SIZE: [3, 4, 7]
+  NUM_CALIB: 12
+  EMBED_DIM: 128
+  DEPTH: 12
+  NUM_HEADS: 8
+  MLP_RATIO: 2
+  QKV_BIAS: True
+  QKV_SCALE: Null
+  DROP_RATE: 0.0
+  ATTN_DROP_RATE: 0.0
+  DROP_PATH_RATE: 0.1
+  LOSS_FUNC: mse
+
+MODEL_MDT:
+  TSUS_SIZE: (3,2,4,7)
+  CSUS_SIZE: (3,2,12)
+  AUXILIARY_DIM: 3
+  EMBED_DIM: 128
+  DEPTH: 8
+  NUM_HEADS: 8
+  MLP_RATIO: 2
+  QKV_BIAS: True
+  QKV_SCALE: Null
+  DROP_RATE: 0.0
+  ATTN_DROP_RATE: 0.0
+  DROP_PATH_RATE: 0.1
+  NOISE_FREE_RATIO: 0.1
+  LOSS_FUNC: mse
+  POST_CALIB_NOISE_DIR: Data/magnetic_noise.pyth
+  AUXILIARY_ENABLE: False
+  CHECKPOINT_FILE_PATH: MagTrackTransformer/trained_NNs/trained_MDT/MWMR_S/checkpoint_epoch_00050.pyth
+  POST_CALIB_ENABLE: True
+
+SOLVER:
+  BASE_LR: 0.0001
+  COSINE_END_LR: 0.0000001
+  OPTIMIZING_METHOD: adamw
+  WEIGHT_DECAY: 1e-5
+  MAX_EPOCH: 100
+  LR_POLICY: cosine
+
+TRAIN:
+  ENABLE: False
+  DATASET: TrackingNoiseRawDataset
+  BATCH_SIZE: 1024
+  CHECKPOINT_PERIOD: 1
+  EVAL_PERIOD: 1
+  AUTO_RESUME: False
+
+TEST:
+  ENABLE: True
+  DATASET: TrackingNoiseRawDataset
+  BATCH_SIZE: 1024
+  CHECKPOINT_FILE_PATH: MagTrackTransformer/trained_NNs/finetuned_MCT/MWMR_S/calib_mtt_train_1/checkpoint_epoch_00066.pyth
+
+
+
+DATA:
+  PATH_TO_DATA_DIR: Data/MCT_calib/MWMR_S/calib_mtt_train_1/
+
+
+DATA_LOADER:
+  NUM_WORKERS: 8
+  PIN_MEMORY: True
+
+TENSORBOARD:
+  ENABLE: False
+
+GPU_ENABLE: True
+RNG_SEED: 0
+LOG_PERIOD: 50
+MODEL_NAME: mct_base
+OUTPUT_DIR: MagTrackTransformer/results/MWMR_S/calib_mtt_train_1

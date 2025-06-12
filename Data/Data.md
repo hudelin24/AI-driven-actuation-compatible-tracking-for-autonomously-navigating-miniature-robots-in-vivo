@@ -105,7 +105,20 @@ A `[1,3,1,4,7]` float tensor records the readouts from the tracking sensing unit
 ### 'magnetic map calibration'
 A `[1,3,1,12]` float tensor records the readouts from the calibration sensing units (CSUs), where `3` is the number of measurement channels, and `12` is the number of the CSUs.
 
+## time_synchronization/split(train or val or test)/time_synchronization.pyth
+`time_synchronization/split(train or val or test)/time_synchronization.pyth` is a dictionary file which stores time synchronization information. It includes four keys:
 
+### 'camera index'
+An `int` number indicates the frame index in camera data.
+
+### 'magnetic index'
+An `int` number indicates the frame index in magnetic data which is the nearest in time with the camera frame.
+
+### 'camera time'
+A `float` number indicates the camera timestamp.
+
+### 'magnetic time'
+A `float` number indicates the sensor array timestamp.
 
 
 

@@ -60,7 +60,7 @@ A `float` number indicates the camera timestamp.
 A `float` number indicates the sensor array timestamp.
 
 # MTT
-It is actually MCT_calib after calibration.
+It is actually the re-organized MCT_calib after MCT-based calibration.
 
 # magnetic_noise.pyth
 

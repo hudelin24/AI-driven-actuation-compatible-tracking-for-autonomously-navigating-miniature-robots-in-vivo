@@ -124,7 +124,7 @@ A `float` number indicates the sensor array timestamp.
 A `[4,7,6]` float tensor records mean and std of error of estimated TSUs' readouts by the fine-tuned MCT, where `6` is the number of measurement channels `* 2`, and `4` and `7` represent the shape of the TSU array. 
 
 ## mag_noise_distribution.pyth
-
+A `[6,6]` float tensor records mean and std of error of estimated 3D coordinates by the trained MTT, where the first `6` is the number of depth intervals, and the second `6` is the number of measurement channels `* 2`.
 
 
 

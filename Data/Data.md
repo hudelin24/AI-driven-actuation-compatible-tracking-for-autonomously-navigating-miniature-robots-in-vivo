@@ -32,8 +32,10 @@ A `float` number indicates the sensor array timestamp.
 A `[1,3,1,4,7]` float tensor records the readouts from the tracking sensing units (TSUs), where `3` is the number of measurement channels, and `4` and `7` rep/esent the shape of the TSU array. 
 ### 'magnetic map calibration'
 A `[1,3,1,12]` float tensor records the readouts from the calibration sensing units (CSUs), where `3` is the number of measurement channels, and `12` is the number of the CSUs.
-### 'calibrated magnetic map (only available after calibration)'
+### 'calibrated magnetic map' (only available after MCT-based calibration)
 A `[1,6,1,4,7]` float tensor records the readouts from the tracking sensing units (TSUs) and the output of the corresponding fine-tuned MCT, where `6` is the number of measurement channels `* 2`, and `4` and `7` represent the shape of the TSU array. 
+### 'calibrated denoised magnetic map' (only available after MDT-based denoising and MCT-based calibration)
+A `[1,18,1,4,7]` float tensor records the readouts from the tracking sensing units (TSUs) and the output of the corresponding fine-tuned MCT, where `6` is the number of measurement channels `* 2`, and `4` and `7` represent the shape of the TSU array. 
 
 ## time_synchronization/time_synchronization.pyth
 `mag_data/mag.pyth` is a dictionary file which stores time synchronization information. It includes four keys:

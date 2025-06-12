@@ -202,6 +202,18 @@ python MagTrackTransformer/tools/run_noise_MTT.py \
 ```
 
 ## MOT for orientation estimation
+MOT is designed to predict orientation of MWMRs.
+### MOT training
+Train the MOT with default settings:
+```
+python MagTrackTransformer/tools/run_mct.py \
+  --cfg MagTrackTransformer/configs/calib/MCT_pretrain.yaml \
+  GPU_ENABLE True \
+  DATA.PATH_TO_DATA_DIR Data/MCT_pretrain \
+  OUTPUT_DIR MagTrackTransformer/results/calib_p 
+```
+
+
 
 
 

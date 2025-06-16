@@ -192,7 +192,7 @@ python MagTrackTransformer/tools/run_noise_mtt.py \
 ```
 Test the fine-tuned MTT on denoised testing samples saved in `Data/MTT/MWMR_S/test/`:
 ```
-python MagTrackTransformer/tools/run_noise_MTT.py \
+python MagTrackTransformer/tools/run_noise_mtt.py \
   --cfg MagTrackTransformer/configs/noise/MTT_noise_train.yaml \
   GPU_ENABLE True \
   DATA.PATH_TO_DATA_DIR Data/MTT_denoise/MWMR_S/ \

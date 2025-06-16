@@ -170,7 +170,7 @@ python MagTrackTransformer/tools/run_noise_calib.py \
 ### MTT evluation on denoised data
 Evaluate the MTT which was trained on noise-free data (data saved in `Data/MTT/MWMR_S/` and model saved at `MagTrackTransformer/trained_NNs/trained_MTT/MWMR_S/tracking_divide_128_10_4_0.1/checkpoint_epoch_00040.pyth`) using denoised data saved at `Data/MTT_denoised/MWMR_S/test/`:
 ```
-python MagTrackTransformer/tools/run_noise_MTT.py \
+python MagTrackTransformer/tools/run_noise_mtt.py \
   --cfg MagTrackTransformer/configs/noise/MTT_noise_train.yaml \
   GPU_ENABLE True \
   DATA.PATH_TO_DATA_DIR Data/MTT_denoise/MWMR_S/ \
@@ -181,7 +181,7 @@ python MagTrackTransformer/tools/run_noise_MTT.py \
 ### MTT fine-tuning using denoised data
 Fine-tune the MTT on denoised data saved in `Data/MTT/MWMR_S/train/` can improve its testing performance:
 ```
-python MagTrackTransformer/tools/run_noise_MTT.py \
+python MagTrackTransformer/tools/run_noise_mtt.py \
   --cfg MagTrackTransformer/configs/noise/MTT_noise_train.yaml \
   GPU_ENABLE True \
   DATA.PATH_TO_DATA_DIR Data/MTT_denoise/MWMR_S/ \

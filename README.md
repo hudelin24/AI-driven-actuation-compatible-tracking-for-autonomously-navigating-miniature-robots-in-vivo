@@ -187,7 +187,7 @@ python MagTrackTransformer/tools/run_noise_mtt.py \
   DATA.PATH_TO_DATA_DIR Data/MTT_denoised/MWMR_S/ \
   OUTPUT_DIR MagTrackTransformer/results/MWMR_S/tracking_divide_128_10_4_0.1/ \
   TRAIN.ENABLE True \
-  TRAIN.FINETUNE True \ 
+  TRAIN.FINETUNE True \
   TRAIN.CHECKPOINT_FILE_PATH MagTrackTransformer/trained_NNs/trained_MTT/MWMR_S/tracking_divide_128_10_4_0.1/checkpoint_epoch_00040.pyth \
 ```
 Test the fine-tuned MTT on denoised testing samples saved in `Data/MTT/MWMR_S/test/`:

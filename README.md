@@ -1,6 +1,6 @@
 # AI-driven-actuation-compatible-tracking-for-closed-loop-navigating-miniature-robots-in-vivo
 
-This is the implementation of our paper "AI-driven actuation-compatible tracking for autonomously navigating miniature robots in vivo", which is currently under review.
+This is the implementation of our paper "AI-driven actuation-compatible tracking for closed-loop navigating miniature robots in vivo", which is currently under review.
 
 # Hardware requirements
 We recommend running the code on a single RTX 4090 GPU.
